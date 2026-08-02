@@ -455,3 +455,181 @@ Some important architectural decisions include:
 - Future cloud compatibility
 
 Every decision prioritizes long-term maintainability instead of immediate implementation convenience.
+
+# Scalability, Security and Future Evolution
+
+---
+
+# Scalability Strategy
+
+The platform has been designed to support continuous growth without requiring major architectural redesigns.
+
+Instead of optimizing prematurely, the architecture favors modular evolution, allowing new components to be introduced only when business requirements justify additional complexity.
+
+Expected scalability stages include:
+
+- Vertical scaling
+- Horizontal scaling
+- Background processing
+- Distributed services
+- Event-driven communication
+- Cloud-native deployment
+
+This approach allows the platform to evolve naturally as new business demands emerge.
+
+---
+
+# Multi-Tenant Readiness
+
+The architecture has been designed with multi-tenant support in mind.
+
+Although the current implementation targets a single operational environment, future versions will support multiple independent organizations sharing the same platform while maintaining complete logical isolation.
+
+Future tenant isolation includes:
+
+- Configuration
+- Business rules
+- Templates
+- Users
+- Permissions
+- Reports
+- Integrations
+- Operational data
+
+This strategy enables scalable SaaS deployment while preserving security and maintainability.
+
+---
+
+# Observability
+
+A modern platform should provide visibility into its own behavior.
+
+Future observability capabilities include:
+
+- Structured logging
+- Performance metrics
+- Request tracing
+- Error monitoring
+- Health checks
+- Operational dashboards
+- Alerting
+- Audit trails
+
+These capabilities support faster troubleshooting and more reliable operations.
+
+---
+
+# Security Strategy
+
+Security is considered a fundamental architectural concern rather than an afterthought.
+
+Core principles include:
+
+- Authentication
+- Authorization
+- Role-based access control
+- Input validation
+- Secure API communication
+- Environment-based configuration
+- Secret management
+- Data protection
+- Secure software development practices
+
+Security capabilities will continue to evolve alongside platform maturity.
+
+---
+
+# Testing Strategy
+
+The architecture supports multiple testing levels.
+
+Planned testing approach includes:
+
+- Unit tests
+- Integration tests
+- API tests
+- End-to-end tests
+- Performance tests
+- Regression tests
+
+Testing is treated as part of the software development lifecycle rather than a separate activity.
+
+---
+
+# Deployment Strategy
+
+The platform has been designed to remain deployment-independent.
+
+Possible deployment environments include:
+
+- Local development
+- Docker containers
+- Cloud platforms
+- Virtual machines
+- Kubernetes clusters
+
+Infrastructure decisions should not affect business logic.
+
+---
+
+# Performance Considerations
+
+Performance is addressed through architectural simplicity and efficient processing.
+
+Future optimization strategies may include:
+
+- Caching
+- Queue processing
+- Asynchronous tasks
+- Lazy loading
+- Connection pooling
+- Distributed workers
+
+Performance improvements should preserve maintainability.
+
+---
+
+# Future Architectural Evolution
+
+The current architecture intentionally serves as a foundation for future expansion.
+
+Potential future components include:
+
+- Artificial Intelligence services
+- Predictive analytics
+- Recommendation engines
+- Business Intelligence modules
+- Workflow orchestration
+- Notification services
+- Scheduling services
+- Reporting services
+- External integrations
+- Mobile applications
+
+Each new capability should integrate naturally into the existing architecture without compromising software quality.
+
+---
+
+# Architectural Decision Process
+
+Every architectural decision follows the same principles:
+
+- Simplicity over unnecessary complexity
+- Maintainability over short-term convenience
+- Scalability over premature optimization
+- Reusability over duplication
+- Clear responsibilities over tightly coupled implementations
+
+These principles guide every major technical decision throughout the project.
+
+---
+
+# Conclusion
+
+This architecture is intended to support long-term software evolution rather than a single application.
+
+By combining modular design, modern engineering practices and a clear separation of responsibilities, the platform establishes a solid foundation for continuous growth.
+
+As new business capabilities are introduced, the architecture is expected to evolve incrementally while preserving software quality, maintainability and operational efficiency.
+
+The ultimate objective is to build a robust, scalable and maintainable platform capable of supporting increasingly complex retail operations through software engineering, automation and data-driven decision making.
