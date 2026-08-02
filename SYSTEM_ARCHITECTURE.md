@@ -170,3 +170,288 @@ Future platform evolution may include:
 - Horizontal scalability
 
 The current architecture minimizes future migration costs while enabling continuous software evolution.
+
+# Internal System Architecture
+
+---
+
+# Request Flow
+
+Every request follows a well-defined execution pipeline.
+
+This separation keeps the application predictable, maintainable and easy to extend.
+
+```
+                HTTP Request
+
+                     │
+
+                     ▼
+
+              API Controller
+
+                     │
+
+                     ▼
+
+          Request Validation Layer
+
+                     │
+
+                     ▼
+
+            Business Service Layer
+
+                     │
+
+         ┌───────────┼────────────┐
+
+         ▼           ▼            ▼
+
+  Automation     Integration   Processing
+
+      Engine         Layer        Engine
+
+         └───────────┼────────────┘
+
+                     ▼
+
+              Rendering Layer
+
+                     │
+
+                     ▼
+
+             Persistence Layer
+
+                     │
+
+                     ▼
+
+               HTTP Response
+```
+
+Each layer is responsible for only one concern, allowing the platform to evolve without creating tightly coupled components.
+
+---
+
+# Presentation Layer
+
+The Presentation Layer is responsible for all user interaction.
+
+Responsibilities include:
+
+- User interface
+- Navigation
+- Authentication flow
+- Form handling
+- Dashboard visualization
+- Client-side validation
+
+The frontend should remain independent from business rules.
+
+Its primary responsibility is delivering a consistent user experience while consuming backend services.
+
+---
+
+# API Layer
+
+The API Layer acts as the communication gateway between clients and business services.
+
+Responsibilities include:
+
+- Routing
+- Authentication
+- Authorization
+- Request validation
+- Response serialization
+- Error handling
+- API versioning
+
+The API should never contain business logic.
+
+Its responsibility is orchestrating communication.
+
+---
+
+# Business Layer
+
+The Business Layer represents the heart of the platform.
+
+All business rules live here.
+
+Responsibilities include:
+
+- Business validation
+- Workflow orchestration
+- Pricing logic
+- Operational rules
+- Domain services
+- Decision flow
+
+Keeping business logic isolated ensures long-term maintainability.
+
+---
+
+# Automation Layer
+
+Automation is one of the platform's core capabilities.
+
+Instead of implementing isolated scripts, automation engines are treated as independent services.
+
+Examples include:
+
+- Promotional material generation
+- Batch execution
+- Workflow automation
+- Future scheduling services
+- Operational task automation
+
+Every engine should remain modular.
+
+---
+
+# Processing Engine
+
+The Processing Engine transforms raw information into structured business data.
+
+Responsibilities include:
+
+- Data normalization
+- Rule execution
+- Template processing
+- Calculations
+- Internal transformations
+- Processing pipelines
+
+The engine is independent from presentation and storage technologies.
+
+---
+
+# Integration Layer
+
+The Integration Layer isolates every external dependency.
+
+Examples include:
+
+- ERP systems
+- REST APIs
+- External authentication
+- Third-party services
+- Future cloud integrations
+
+This approach prevents external changes from affecting business rules.
+
+---
+
+# Rendering Layer
+
+Rendering services generate the final output consumed by users.
+
+Examples:
+
+- PDF generation
+- Future image rendering
+- Future digital signage
+- Template rendering
+
+Rendering engines receive processed information and never contain business rules.
+
+---
+
+# Persistence Layer
+
+The Persistence Layer stores operational and configuration data.
+
+Responsibilities include:
+
+- Business entities
+- User information
+- Metadata
+- Configuration
+- Operational history
+- Future analytical data
+
+Business services never communicate directly with the database.
+
+Repositories abstract all persistence operations.
+
+---
+
+# Dependency Flow
+
+The architecture follows a one-way dependency model.
+
+```
+Presentation
+
+      │
+
+API
+
+      │
+
+Business
+
+      │
+
+Services
+
+      │
+
+Repositories
+
+      │
+
+Database
+```
+
+Infrastructure depends on business logic.
+
+Business logic never depends on infrastructure.
+
+This keeps the platform flexible and testable.
+
+---
+
+# Module Independence
+
+Every module should evolve independently.
+
+Examples:
+
+- Replacing PostgreSQL
+
+- Introducing Redis
+
+- Creating a Mobile App
+
+- Adding AI Services
+
+- Deploying Microservices
+
+These changes should require minimal modifications to existing business logic.
+
+---
+
+# Engineering Decisions
+
+Some important architectural decisions include:
+
+- API-first communication
+
+- Stateless backend
+
+- Modular services
+
+- Repository pattern
+
+- Dependency injection
+
+- Layer isolation
+
+- Configuration through environment variables
+
+- Future cloud compatibility
+
+Every decision prioritizes long-term maintainability instead of immediate implementation convenience.
